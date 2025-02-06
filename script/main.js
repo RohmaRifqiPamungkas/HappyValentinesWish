@@ -275,6 +275,28 @@ const animationTimeline = () => {
   });
 };
 
+const enableAudio = () => {
+  const audio = document.getElementById("bg-music");
+
+  if (audio) {
+    audio.muted = false; // Unmute audio
+    audio
+      .play()
+      .then(() => {
+        console.log("Musik dimulai...");
+      })
+      .catch((error) => {
+        console.log("Gagal memutar musik:", error);
+      });
+
+    // Hapus event listener setelah pertama kali dijalankan
+    document.removeEventListener("click", enableAudio);
+  }
+};
+
+// Pastikan musik diputar setelah klik pertama user
+document.addEventListener("click", enableAudio);
+
 // Import the data to customize and insert them into page
 const fetchData = () => {
   fetch("customize.json")
