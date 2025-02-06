@@ -294,9 +294,6 @@ const enableAudio = () => {
   }
 };
 
-// Pastikan musik diputar setelah klik pertama user
-document.addEventListener("click", enableAudio);
-
 // Import the data to customize and insert them into page
 const fetchData = () => {
   fetch("customize.json")
